@@ -80,6 +80,7 @@ export default {
         this.$v.$touch();
         if (!this.$v.$invalid) {
           await this.loginUser(this.formData);
+          await this.$router.push({ name: "Books" });
         }
       } catch (error) {}
     },

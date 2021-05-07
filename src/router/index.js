@@ -20,6 +20,14 @@ const routes = [
       layout: "auth",
     },
   },
+  {
+    path: "/books",
+    name: "Books",
+    component: () => import("@/views/Books.vue"),
+    meta: {
+      layout: "auth",
+    },
+  },
 ];
 
 const router = new VueRouter({
@@ -27,5 +35,19 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-
+router.beforeEach((to, _, next) => {
+  if (
+    (to.name !== "Login" || to.name !== "Register") &&
+    !localStorage.getItem("auth")
+  ) {
+    next({ name: "Login" });
+  } else if (
+    (to.name === "Login" || to.name === "Register") &&
+    localStorage.getItem("auth")
+  ) {
+    next({ name: "Books" });
+  } else {
+    next();
+  }
+});
 export default router;
