@@ -1,11 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import auth from "./auth";
+import books from "./books";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    token: null,
+    token: localStorage.getItem("auth") || null,
     responseErrors: {},
     validationErrors: {
       invalidEmail: "Некорректный email",
@@ -17,6 +18,7 @@ export default new Vuex.Store({
   mutations: {
     SET_TOKEN(state, token) {
       state.token = token;
+      localStorage.setItem("auth", response.headers.authorization);
     },
     SET_ERROR(state, error) {
       state.responseErrors = { ...state.responseErrors, ...error };
@@ -28,5 +30,6 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     auth,
+    books,
   },
 });

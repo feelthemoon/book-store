@@ -1,11 +1,13 @@
 <template>
   <v-app>
-    <nav class="navbar">
-      <router-link to="/" class="logo">
-        <img src="@/assets/img/logo.svg" alt="BookStore" />
-        <span class="logo__text">BookStore</span>
-      </router-link>
-    </nav>
+    <header>
+      <nav class="navbar">
+        <router-link to="/" class="logo">
+          <img src="@/assets/img/logo.svg" alt="BookStore" />
+          <span class="logo__text">BookStore</span>
+        </router-link>
+      </nav>
+    </header>
     <router-view></router-view>
   </v-app>
 </template>

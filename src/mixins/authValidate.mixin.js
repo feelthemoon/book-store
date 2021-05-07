@@ -52,6 +52,11 @@ export default {
         !this.$v.formData.passwordConfirmed.sameAs
       ) {
         return this.validationErrors.invalidPasswordConfirmation;
+      } else if (
+        this.$v.formData.passwordConfirmed.$dirty &&
+        !this.$v.formData.passwordConfirmed.required
+      ) {
+        return this.validationErrors.required;
       }
     },
     invalidRulesAgreement() {
