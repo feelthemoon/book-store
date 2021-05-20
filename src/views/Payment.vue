@@ -132,3 +132,4 @@ export default {
     grid-area: userName;
 }
 </style>
+
