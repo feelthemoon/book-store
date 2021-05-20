@@ -129,74 +129,75 @@ export default {
     "proceed proceed proceed proceed proceed";
 }
 
-.dev-method {
-  grid-area: dev-method;
-  margin-left: 30px;
-  margin-top: 10px;
-  font-size: 20pt;
-  font-weight: bold;
-}
-.btn-courier {
-  margin-top: 20px;
-  margin-left: 10px;
-}
-.btn-pochta {
-  margin-top: 20px;
-  margin-left: 100px;
-}
-.info-order {
-  grid-area: info;
-  font-size: 20pt;
-  font-weight: bold;
-  margin-left: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 10% 1fr 1fr 10%;
-  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 0.8fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "ent-field ent-field ent-field ent-field ent-field ent-field"
-    "name name . surname surname ."
-    ". . . . . ."
-    "punkt punkt . index index ."
-    ". . . . . ."
-    "street street . home home ."
-    ". . . . . ."
-    "phone phone . mail mail ."
-    ". . . . . ."
-    "check check check check check check";
-}
-.ent-field {
-  grid-area: ent-field;
-}
-.name {
-  grid-area: name;
-}
-.surname {
-  grid-area: surname;
-}
-.punkt {
-  grid-area: punkt;
-}
-.index {
-  grid-area: index;
-}
-.street {
-  grid-area: street;
-}
-.home {
-  grid-area: home;
-}
-.phone {
-  grid-area: phone;
-}
-.mail {
-  grid-area: mail;
-}
-.check {
-  grid-area: check;
-  font-size: 14pt;
-  margin-left: 30px;
-}
+    .dev-method { 
+        grid-area: dev-method; 
+        margin-left: 30px;
+        margin-top: 10px;
+        font-size: 20pt;
+        font-weight: bold;
+    }
+    .btn-courier{
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    .btn-pochta{
+        margin-top: 20px;
+        margin-left: 100px;
+    }
+    .info { 
+        grid-area: info; 
+        font-size: 20pt;
+        font-weight: bold;
+        margin-left: 30px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 10% 1fr 1fr 10%;
+        grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 0.8fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "ent-field ent-field ent-field ent-field ent-field ent-field"
+            "name name . surname surname ."
+            ". . . . . ."
+            "punkt punkt . index index ."
+            ". . . . . ."
+            "street street . home home ."
+            ". . . . . ."
+            "phone phone . mail mail ."
+            ". . . . . ."
+            "check check check check check check";
+    }
+    .ent-field { grid-area: ent-field; }
+    .name { 
+        grid-area: name; 
+    }
+    .surname { 
+        grid-area: surname; 
+    }
+    .punkt { 
+        grid-area: punkt; 
+    }
+    .index { 
+        grid-area: index; 
+    }
+    .street { 
+        grid-area: street; 
+    }
+    .home { 
+        grid-area: home; 
+    }
+    .phone { 
+        grid-area: phone; 
+    }
+    .mail { 
+        grid-area: mail; 
+    }
+    .check { 
+        grid-area: check; 
+        font-size: 14pt;
+        margin-top: 10px;
+        margin-left: 180px;
+        color: grey;
+    }
 
 .proceed {
   grid-area: proceed;
