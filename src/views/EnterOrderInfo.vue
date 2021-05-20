@@ -192,7 +192,9 @@ export default {
     .check { 
         grid-area: check; 
         font-size: 14pt;
-        margin-left: 30px;
+        margin-top: 10px;
+        margin-left: 180px;
+        color: grey;
     }
 
     .proceed {
