@@ -6,7 +6,7 @@
         <v-text-field
           append-icon="mdi-account-box"
           type="text"
-          v-model="formData.firstName"
+          v-model.trim="formData.firstName"
           :class="{
             invalid: invalidFirstName,
             'mr-5': !$vuetify.breakpoint.xs,
@@ -18,7 +18,7 @@
         <v-text-field
           append-icon="mdi-account-box-outline"
           type="text"
-          v-model="formData.lastName"
+          v-model.trim="formData.lastName"
           :class="{ invalid: invalidLastName }"
           :error-messages="invalidLastName"
           outlined
@@ -30,7 +30,7 @@
         <v-text-field
           append-icon="mdi-email"
           type="email"
-          v-model="formData.email"
+          v-model.trim="formData.email"
           :class="{
             invalid: invalidEmail || responseErrors.hasOwnProperty('email'),
             'mr-5': !$vuetify.breakpoint.xs,
@@ -57,7 +57,7 @@
         <v-text-field
           append-icon="mdi-lock"
           type="password"
-          v-model="formData.password"
+          v-model.trim="formData.password"
           :class="{ invalid: invalidPassword, 'mr-5': !$vuetify.breakpoint.xs }"
           :error-messages="invalidPassword"
           outlined
@@ -66,7 +66,7 @@
         <v-text-field
           append-icon="mdi-lock-reset"
           type="password"
-          v-model="formData.passwordConfirmed"
+          v-model.trim="formData.passwordConfirmed"
           :class="{ invalid: invalidPasswordConfirmed }"
           :error-messages="invalidPasswordConfirmed"
           outlined
@@ -168,6 +168,7 @@ export default {
             ...this.formData,
             phone: this.formData.phone.replaceAll(/[\s\\()+-]/gm, ""),
           });
+          await this.$router.push({ name: "Books" });
         }
       } catch (error) {}
     },

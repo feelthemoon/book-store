@@ -18,7 +18,7 @@ export default new Vuex.Store({
   mutations: {
     SET_TOKEN(state, token) {
       state.token = token;
-      localStorage.setItem("auth", response.headers.authorization);
+      localStorage.setItem("auth", token);
     },
     SET_ERROR(state, error) {
       state.responseErrors = { ...state.responseErrors, ...error };
