@@ -31,6 +31,12 @@
                     outlined
                     label="CVV"
                 ></v-text-field>
+                <v-text-field
+                    class="userName"
+                    type="text"
+                    outlined
+                    label="Владелец"
+                ></v-text-field>
             </div>
             <div class="btn">
                 <v-btn elevation="2" large class="btn-pay">
@@ -85,22 +91,23 @@ export default {
     grid-area: name; 
     font-size: 20pt;
     font-weight: bold;
-    margin-top: 10px;
-    margin-left: 100px;
+    margin-top: 15px;
+    margin-left: 140px;
 }
 .card { 
     grid-area: card; 
     display: grid;
     
-    grid-template-columns: 1fr 10% 5% 10% 1fr 1fr 1fr;
+    grid-template-columns: 10% 10% 5% 10% 1fr 1fr 10%;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
         ". . . . . . ."
         ". number number number number number ."
         ". . . . . . ."
-        ". . . . . cvv ."
-        ". month text year . . ."
+        ". month text year . cvv ."
+        ". . . . . . ."
+        ". userName userName userName userName userName ."
         ". . . . . . ."
         ". . . . . . .";
 }
@@ -120,5 +127,8 @@ export default {
     grid-area: btn; 
     margin-top: 70px;
     margin-left: 250px;
+}
+.userName {
+    grid-area: userName;
 }
 </style>
