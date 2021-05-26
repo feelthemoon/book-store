@@ -28,6 +28,13 @@ const routes = [
       layout: "auth",
     },
   },
+  {
+    path: "/books/:id",
+    component: () => import("@/views/ProductPage.vue"),
+    meta: {
+      layout: "auth",
+    },
+  },
 ];
 
 const router = new VueRouter({
@@ -37,7 +44,8 @@ const router = new VueRouter({
 });
 router.beforeEach((to, _, next) => {
   if (
-    (to.name !== "Login" || to.name !== "Register") &&
+    to.name !== "Login" &&
+    to.name !== "Register" &&
     !localStorage.getItem("auth")
   ) {
     next({ name: "Login" });
