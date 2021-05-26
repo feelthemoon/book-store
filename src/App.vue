@@ -1,17 +1,17 @@
 <template>
   <div>
     <!-- <component :is="layout"></component> -->
-    <payment></payment>
+    <enter-order-info></enter-order-info>
   </div>
 </template>
 
 <script>
 import AuthLayout from "@/layouts/AuthLayout.vue";
-import Payment from './views/Payment.vue';
+import EnterOrderInfo from './views/EnterOrderInfo.vue';
 export default {
   components: {
     AuthLayout,
-    Payment
+    EnterOrderInfo
   },
   computed: {
     layout() {
