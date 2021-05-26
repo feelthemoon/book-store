@@ -34,8 +34,8 @@ const routes = [
     component: () => import("@/views/Payment.vue"),
     meta: {
       layout: "auth",
-    }
-  }
+    },
+  },
   {
     path: "/books/:id",
     component: () => import("@/views/ProductPage.vue"),
