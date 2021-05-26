@@ -43,6 +43,13 @@ const routes = [
       layout: "auth",
     },
   },
+  {
+    path: "/order",
+    component: () => import("@/views/EnterOrderInfo.vue"),
+    meta: {
+      layout: "auth",
+    },
+  },
 ];
 
 const router = new VueRouter({
