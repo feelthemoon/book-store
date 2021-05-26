@@ -45,7 +45,16 @@ const routes = [
   },
   {
     path: "/order",
+    name: "Order",
     component: () => import("@/views/EnterOrderInfo.vue"),
+    meta: {
+      layout: "auth",
+    },
+  },
+  {
+    path: "/order/:id",
+    name: "EndOrder",
+    component: () => import("@/views/OrderEnd.vue"),
     meta: {
       layout: "auth",
     },
