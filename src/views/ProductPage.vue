@@ -29,9 +29,9 @@
         >
       </div>
       <div class="buy">
-        В наличии:
+        В наличии: <span class="has-product">ДА</span>
         <div class="btn-buy">
-          <v-btn elevation="2" large> Купить </v-btn>
+          <v-btn elevation="2" large color="primary"> В корзину </v-btn>
         </div>
       </div>
     </div>
@@ -162,6 +162,9 @@ hr {
 }
 .btn-buy {
   margin-top: 80px;
-  margin-left: 150px;
+  margin-left: 130px;
+}
+.has-product {
+  color: rgb(21, 248, 21);
 }
 </style>
