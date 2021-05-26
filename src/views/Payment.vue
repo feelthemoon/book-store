@@ -39,7 +39,7 @@
                 ></v-text-field>
             </div>
             <div class="btn">
-                <v-btn elevation="2" large class="btn-pay">
+                <v-btn depressed type="submit" color="success">
                      Оплатить    
                  </v-btn>
             </div>
