@@ -144,7 +144,7 @@ export default {
         margin-top: 20px;
         margin-left: 100px;
     }
-    .info { 
+    .info-order {
         grid-area: info; 
         font-size: 20pt;
         font-weight: bold;
