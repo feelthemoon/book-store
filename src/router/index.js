@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
+//Array of app routes
 const routes = [
   {
     path: "/",
@@ -59,6 +60,14 @@ const routes = [
       layout: "auth",
     },
   },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => import("@/views/UserProfile.vue"),
+    meta: {
+      layout: "auth",
+    },
+  },
 ];
 
 const router = new VueRouter({
@@ -66,6 +75,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+//Middleware for checking auth
 router.beforeEach((to, _, next) => {
   if (
     to.name !== "Login" &&

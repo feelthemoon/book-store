@@ -56,6 +56,7 @@ export default {
   mixins: [validationMixin, authValidateMixin],
   data() {
     return {
+      //Form data for login
       formData: {
         email: "",
         password: "",
@@ -75,6 +76,7 @@ export default {
     },
   },
   methods: {
+    //Click handler for login
     async onLoginUser() {
       try {
         this.$v.$touch();

@@ -293,6 +293,7 @@
 export default {
   data() {
     return {
+      //necessary data for card component
       currentCardBackground: Math.floor(Math.random() * 25 + 1),
       cardName: "",
       cardNumber: "",
@@ -313,6 +314,7 @@ export default {
     document.getElementById("cardNumber").focus();
   },
   computed: {
+    //Getting card type
     getCardType() {
       let number = this.cardNumber;
       let re = new RegExp("^4");
@@ -332,6 +334,7 @@ export default {
 
       return "visa";
     },
+    //Card number mask
     generateCardNumberMask() {
       return this.getCardType === "amex"
         ? this.amexCardMask
@@ -350,6 +353,7 @@ export default {
     },
   },
   methods: {
+    //Methods for input text
     flipCard(status) {
       this.isCardFlipped = status;
     },

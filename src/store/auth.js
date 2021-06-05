@@ -1,6 +1,7 @@
 import { auth } from "@/api";
 export default {
   actions: {
+    //Actions for login and register users
     async loginUser({ commit }, data) {
       try {
         const response = await auth.login(data);

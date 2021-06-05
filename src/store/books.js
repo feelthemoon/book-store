@@ -7,6 +7,7 @@ export default {
     paginationLength: null,
   },
   mutations: {
+    //Mutations for changing state
     SET_BOOKS(state, books) {
       state.books = books;
     },
@@ -18,6 +19,7 @@ export default {
     },
   },
   actions: {
+    //Actions for getting all books and book by id
     async getBooks({ rootState, commit }, page) {
       try {
         const response = await booksApi.getAll(rootState.token, page);
