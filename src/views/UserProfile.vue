@@ -39,17 +39,16 @@
             append-icon="mdi-home"
             type="text"
             outlined
-            label="Address"
+            label="Адрес"
             small
             ></v-text-field>
         </div>
         <div class="change">
         <v-btn
+          color="success"
           elevation="2"
           large
-          class="btn-proceed"
-          append-icon="mdi-arrow-right"
-          color="blue"
+          outlined
         >
           Изменить
         </v-btn>
