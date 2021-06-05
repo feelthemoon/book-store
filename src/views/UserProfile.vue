@@ -3,6 +3,10 @@
         <div class="myProfile">
             Мой профиль
         </div>
+        <div class="image">
+            <img width="80" height="80" src="https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png">
+            <input class="inputImg" type="file" >
+        </div>
         <div class="fio">
             <v-text-field
             append-icon="mdi-account-box"
@@ -14,7 +18,7 @@
         </div>
         <div class="phone">
             <v-text-field
-            append-icon="mdi-account-box"
+            append-icon="mdi-phone"
             type="text"
             outlined
             label="Телефон"
@@ -23,7 +27,7 @@
         </div>
         <div class="mail">
             <v-text-field
-            append-icon="mdi-account-box"
+            append-icon="mdi-email"
             type="text"
             outlined
             label="E-mail"
@@ -32,7 +36,7 @@
         </div>
         <div class="address">
             <v-text-field
-            append-icon="mdi-account-box"
+            append-icon="mdi-home"
             type="text"
             outlined
             label="Address"
@@ -79,7 +83,7 @@ export default {
   grid-template-areas:
     ". . . . . . . . . . . . ."
     ". myProfile myProfile myProfile . active active active . history history history ."
-    ". . img . . active active active . history history history ."
+    ". . image . . active active active . history history history ."
     ". fio fio fio . active active active . history history history ."
     ". phone phone phone . active active active . history history history ."
     ". mail mail mail . . . . . . . . ."
@@ -96,7 +100,25 @@ export default {
     font-size: 40pt;
     font-weight: bold;
 }
-.img { grid-area: img; }
+.image { 
+    grid-area: image;
+    margin-bottom: 20px; 
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.inputImg{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left:0;
+    z-index: 100
+}
 .active { 
     grid-area: active; 
     border-radius: 5px 5px 5px 5px;
