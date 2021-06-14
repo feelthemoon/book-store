@@ -3,7 +3,16 @@ import routes from "./routes";
 
 export default {
   //get user info
-  getInfo(token) {
-    return api.request(routes.profile, null, "get", token);
+  async getInfo(token) {
+    return await api.request(routes.profile, null, "get", token);
+  },
+  async changeInfo(token, data) {
+    return await api.request(routes.profile, data, "put", token);
+  },
+  async uploadAvatar(token, avatar) {
+    return await api.request(routes.profileAvatar, avatar, "put", token);
+  },
+  async deleteAvatar(token) {
+    return await api.request(routes.profileAvatar, null, "delete", token);
   },
 };

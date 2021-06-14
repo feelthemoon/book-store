@@ -9,4 +9,5 @@ export default {
     return `${this.books}/${id}`;
   },
   profile: `${mainPrefix}profile`,
+  profileAvatar: `${mainPrefix}profile/avatar`,
 };

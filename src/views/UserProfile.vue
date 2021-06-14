@@ -2,13 +2,19 @@
   <div class="grid-container">
     <div class="myProfile">Мой профиль</div>
     <div class="image">
-      <img
-        width="100"
-        height="100"
-        src="https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png"
-        alt="Фото профиля"
-      />
-      <input class="inputImg" type="file" />
+      <img width="100" height="100" :src="userAvatar" alt="Фото профиля" />
+      <input class="inputImg" type="file" ref="avatar" @change="changeAvatar" />
+      <v-btn
+        class="deleteAvatar"
+        fab
+        max-height="20px"
+        max-width="20px"
+        x-small
+        color="error"
+        @click="deleteAvatar"
+        v-show="user.avatar && Object.keys(user.avatar).length"
+        ><v-icon size="12">mdi-delete</v-icon></v-btn
+      >
     </div>
     <div class="fio">
       <v-text-field
@@ -16,7 +22,7 @@
         type="text"
         outlined
         label="ФИО"
-        v-model="userForm.fullName"
+        v-model.trim="userForm.fullName"
         small
       ></v-text-field>
     </div>
@@ -27,7 +33,7 @@
         outlined
         label="Телефон"
         v-mask="'+# (###) ###-##-##'"
-        v-model="userForm.phone"
+        v-model.trim="userForm.phone"
         small
       ></v-text-field>
     </div>
@@ -37,7 +43,7 @@
         type="text"
         outlined
         label="E-mail"
-        v-model="userForm.email"
+        v-model.trim="userForm.email"
         small
       ></v-text-field>
     </div>
@@ -47,12 +53,21 @@
         type="text"
         outlined
         label="Адрес"
-        v-model="userForm.address"
+        v-model.trim="userForm.address"
         small
       ></v-text-field>
     </div>
     <div class="change">
-      <v-btn color="success" elevation="2" large outlined> Изменить </v-btn>
+      <v-btn
+        @click="changeInfo"
+        type="submit"
+        color="success"
+        elevation="2"
+        large
+        outlined
+      >
+        Изменить
+      </v-btn>
     </div>
     <div class="active">
       <span class="spanAct">Активные заказы:</span>
@@ -80,9 +95,37 @@ export default {
   },
   computed: {
     ...mapState({ user: (state) => state.profile.userInfo }),
+    userAvatar() {
+      if (!this.user.avatar?.img) {
+        return require("@/assets/img/no_avatar.png");
+      }
+      return `data:image/${this.user.avatar.type};base64,${this.user.avatar.img}`;
+    },
   },
   methods: {
-    ...mapActions(["getUserInfo"]),
+    ...mapActions([
+      "getUserInfo",
+      "changeProfile",
+      "uploadAvatar",
+      "deleteProfileAvatar",
+    ]),
+    async changeAvatar() {
+      const formData = new FormData();
+      formData.append("avatar", this.$refs.avatar.files[0]);
+      try {
+        await this.uploadAvatar(formData);
+      } catch (error) {}
+    },
+    async deleteAvatar() {
+      try {
+        await this.deleteProfileAvatar();
+      } catch (error) {}
+    },
+    async changeInfo() {
+      try {
+        await this.changeProfile(this.userForm);
+      } catch (error) {}
+    },
   },
 };
 </script>
@@ -118,9 +161,16 @@ export default {
   position: relative;
   width: 100px;
   height: 100px;
+  display: flex;
   border-radius: 50%;
   img {
     border-radius: 50%;
+    object-fit: cover;
+  }
+  .deleteAvatar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 }
 .inputImg {
