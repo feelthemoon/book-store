@@ -16,6 +16,7 @@
         type="text"
         outlined
         label="ФИО"
+        v-model="userForm.fullName"
         small
       ></v-text-field>
     </div>
@@ -25,6 +26,8 @@
         type="text"
         outlined
         label="Телефон"
+        v-mask="'+# (###) ###-##-##'"
+        v-model="userForm.phone"
         small
       ></v-text-field>
     </div>
@@ -34,6 +37,7 @@
         type="text"
         outlined
         label="E-mail"
+        v-model="userForm.email"
         small
       ></v-text-field>
     </div>
@@ -43,6 +47,7 @@
         type="text"
         outlined
         label="Адрес"
+        v-model="userForm.address"
         small
       ></v-text-field>
     </div>
@@ -59,9 +64,25 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      userForm: {},
+    };
+  },
+  async created() {
+    await this.getUserInfo();
+    this.userForm = this.user;
+    this.userForm.phone = this.$options.filters.phoneFilter(
+      this.userForm.phone
+    );
+  },
+  computed: {
+    ...mapState({ user: (state) => state.profile.userInfo }),
+  },
+  methods: {
+    ...mapActions(["getUserInfo"]),
   },
 };
 </script>

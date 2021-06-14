@@ -13,8 +13,10 @@ export default {
     async getUserInfo({ commit, rootState }) {
       try {
         const response = await profileApi.getInfo(rootState.token);
-        console.log(response);
-      } catch (error) {}
+        commit("SET_USER_INFO", response.data);
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
