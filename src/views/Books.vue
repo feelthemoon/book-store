@@ -24,6 +24,7 @@ export default {
       page: 1,
     };
   },
+  //Updating books
   beforeRouteEnter(_, __, next) {
     next(async (vm) => {
       await vm.updateBooks();
@@ -39,6 +40,7 @@ export default {
     }),
   },
   methods: {
+    //Methods for getting actual books
     async updateBooks() {
       try {
         await this.getBooks(this.page);

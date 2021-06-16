@@ -41,6 +41,7 @@
 import { mapState, mapActions } from "vuex";
 export default {
   computed: mapState({ product: (state) => state.books.product }),
+  //Getting product info
   beforeRouteEnter(_, __, next) {
     next(async (vm) => {
       try {
@@ -49,6 +50,7 @@ export default {
     });
   },
   methods: {
+    //Mapping actions and method for getting product info
     ...mapActions(["getProduct"]),
     async getProductInfo() {
       try {

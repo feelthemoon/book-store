@@ -33,14 +33,23 @@
         <v-icon>mdi-cart-arrow-down</v-icon>
       </v-btn>
 
-      <v-btn class="card__btn" color="#5DBAEE"> Купить в один клик </v-btn>
+      <v-btn
+        @click.stop="$router.push({ name: 'Order' })"
+        class="card__btn"
+        color="#5DBAEE"
+      >
+        Купить в один клик
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 <script>
 export default {
   props: {
-    book: Object,
+    book: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 };
 </script>

@@ -7,10 +7,12 @@
 <script>
 import AuthLayout from "@/layouts/AuthLayout.vue";
 import OrderEnd from "./views/OrderEnd.vue";
+import UserProfile from "./views/UserProfile.vue";
 export default {
   components: {
     AuthLayout,
     OrderEnd,
+    UserProfile,
   },
   computed: {
     layout() {

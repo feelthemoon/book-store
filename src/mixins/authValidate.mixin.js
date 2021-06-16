@@ -2,6 +2,7 @@ import { mapState, mapMutations } from "vuex";
 
 export default {
   computed: {
+    //Form validation computed properties
     invalidEmail() {
       if (
         this.$v.formData.email.$dirty &&
@@ -67,6 +68,7 @@ export default {
         return this.validationErrors.required;
       }
     },
+    //mapping root state
     ...mapState({
       validationErrors: (state) => state.validationErrors,
       responseErrors: (state) => state.responseErrors,
@@ -75,6 +77,7 @@ export default {
   methods: {
     ...mapMutations(["RESET_ERROR"]),
   },
+  //Reset error before current route leave
   beforeRouteLeave(_, __, next) {
     this.RESET_ERROR();
     next();

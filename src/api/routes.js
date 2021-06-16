@@ -1,3 +1,4 @@
+//Routes and prefixes for requests
 const mainPrefix = "api/v1/";
 const adminPrefix = "api/v1/admin";
 export default {
@@ -7,4 +8,6 @@ export default {
   bookById(id) {
     return `${this.books}/${id}`;
   },
+  profile: `${mainPrefix}profile`,
+  profileAvatar: `${mainPrefix}profile/avatar`,
 };

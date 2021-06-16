@@ -112,6 +112,7 @@ export default {
   mixins: [validationMixin, authValidateMixin],
   data() {
     return {
+      //Form data for register
       formData: {
         firstName: "",
         lastName: "",
@@ -123,6 +124,7 @@ export default {
       },
     };
   },
+  //Validation fields
   validations: {
     formData: {
       email: {
@@ -160,6 +162,7 @@ export default {
   },
 
   methods: {
+    //Click handler for register
     async onRegisterUser() {
       try {
         this.$v.$touch();

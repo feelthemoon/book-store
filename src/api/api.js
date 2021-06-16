@@ -2,6 +2,7 @@ import axios from "axios";
 
 const host = process.env.VUE_APP_API_URL;
 export default {
+  //Creating common method for requests
   async request(url, data = {}, method = "post", token = null) {
     const requestHeaders = {
       "Access-Control-Allow-Origin": "*",
