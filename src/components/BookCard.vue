@@ -46,7 +46,10 @@
 <script>
 export default {
   props: {
-    book: Object,
+    book: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 };
 </script>

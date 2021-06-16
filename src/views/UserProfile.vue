@@ -112,19 +112,13 @@ export default {
     async changeAvatar() {
       const formData = new FormData();
       formData.append("avatar", this.$refs.avatar.files[0]);
-      try {
-        await this.uploadAvatar(formData);
-      } catch (error) {}
+      await this.uploadAvatar(formData);
     },
     async deleteAvatar() {
-      try {
-        await this.deleteProfileAvatar();
-      } catch (error) {}
+      await this.deleteProfileAvatar();
     },
     async changeInfo() {
-      try {
-        await this.changeProfile(this.userForm);
-      } catch (error) {}
+      await this.changeProfile(this.userForm);
     },
   },
 };
