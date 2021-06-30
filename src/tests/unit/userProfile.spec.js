@@ -24,12 +24,12 @@ const factory = (vuetify) =>
     store,
   });
 
-describe("Форма авторизации", () => {
+describe("Профиль польователя", () => {
   let vuetify;
   beforeEach(() => {
     vuetify = new Vuetify();
   });
-  it("Имеет два текстовых поля и чекбокс", () => {
+  it("Имеет пять текстовых полей", () => {
     const wrapper = factory(vuetify);
     expect(wrapper.findAll("input").length).toEqual(5);
   });
